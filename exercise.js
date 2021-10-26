@@ -1,8 +1,13 @@
-var start = Date();
-var step;
-for(step=0;step<10;step++){
-  console.log("A");
+function a(str) {
+    console.log(str);
+    return;
 }
-var end = new Date();
-var elapsed = end - start;
-console.log(elapsed);
+
+a(null == undefined);
+a(1 == "1");
+a("0xff"==255);
+a(true == 1);
+a(true == "1");
+a(new String("a") == "a");
+a(new Number(2) == 2);
+a([2] == 2);
