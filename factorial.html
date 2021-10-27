@@ -1,19 +1,37 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <title>Factorial Calculation</title>
+	<meta charset="UTF-8">
+	<title>StopWatch</title>
+	<script>
+		window.onload = function () {
+			var startButton = document.getElementById("start");
+			var stopButton = document.getElementById("stop");
+			var display = document.getElementById("time");
+			var startTime, timer;
+			startButton.onclick = startTimer;
+			function startTimer() {
+				startButton.onclick = null;
+				stopButton.onclick = stopTimer;
+				startTime = new Date();
+				timer = setInterval(() => {
+					var now = new Date();
+					display.innerHTML = (now - startTime).toFixed(2);
+				}, 10);
+			}
+			function stopTimer() {
+				clearInterval(timer);
+				startButton.onclick = startTimer;
+			}
+		};
+	</script>
 </head>
+
 <body>
-    <script>
-        function fact(n) {
-            if (n <= 1) return n;
-            return n * fact(n - 1);
-        }
-        for (var i = 1; i < 10; i++) {
-            document.write(i + "! = " + fact(i) + "<br/>");
-        }
-    </script>
+	<p id="time">0.00</p>
+	<input id="start" type="button" value="start">
+	<input id="stop" type="button" value="stop">
 </body>
 
 </html>
