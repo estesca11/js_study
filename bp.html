@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Blood Pressure Calculator</title>
+    <script>
+        window.onload = function () {
+            document.getElementById("calc").onclick = function () {
+                var h = parseFloat(document.getElementById("high").value);
+                var l = parseFloat(document.getElementById("low").value);
+                var result = document.getElementById("judge");
+                if (h < 120 && l < 80) {
+                    result.innerHTML = "Normal";
+                }
+                else if (h < 139 && l < 89) {
+                    result.innerHTML = "Boderline High";
+                }
+                else {
+                    result.innerHTML = "High";
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <p>High : <input type="text" name="" id="high"></p>
+    <p>Low : <input type="text" name="" id="low"></p>
+    <p id="judge">result will be displayed here.</p>
+    <input type="button" value="calculate" id="calc">
+</body>
+
+</html>
