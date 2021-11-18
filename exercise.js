@@ -1,7 +1,3 @@
-function f(x) {
-    x = { a: "5" }
-}
-let x = { a: "1" }
-
-f(x);
-console.log(x.a);
+function foo() { }
+const bar = new foo();
+console.log(bar.__proto__.constructor);
