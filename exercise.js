@@ -1,3 +1,11 @@
-function foo() { }
-const bar = new foo();
-console.log(bar.__proto__.constructor);
+var outer = function () {
+    var a = 1;
+    var inner = function () {
+        return ++a;
+    };
+    return inner;
+
+};
+var outer2 = outer();
+console.log(outer2());
+console.log(outer2());
